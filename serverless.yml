@@ -1,0 +1,6 @@
+service: ci-training # Renomear este campo de acordo com o nome do seu serviço
+
+provider: ${file(./src/infrastructure/serverless/provider.yml)}
+functions: ${file(./src/infrastructure/serverless/functions.yml)}
+plugins: ${file(./src/infrastructure/serverless/plugins.yml)}
+custom: ${file(./src/infrastructure/serverless/custom.yml)}

@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  
+  serverless:
+    container_name: sls-container
+    build:
+      context: ./docker
+    volumes:
+      - ./:/home/serverless
+    ports:
+      - "3000:3000"

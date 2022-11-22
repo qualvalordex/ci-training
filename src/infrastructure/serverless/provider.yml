@@ -1,0 +1,28 @@
+# Define o nome do provedor de nuvem que será utilizado no projeto
+name: aws
+
+# Define qual ambiente será utilizado para este serviço. Caso não seja indicado um ambiente, o padrão é local.
+stage: ${opt:stage, 'local'}
+
+
+# Define a versão do NodeJS que será utilizada. A AWS adicionou suporte nas Lambdas para a versão 16 do NodeJS.
+runtime: nodejs16.x
+
+# Define a região em que será feita a publicação do serviço
+region: us-east-1
+
+# Indica para que a AWS versione as funções Lambda. Útil para restauração de versões mais antigas.
+versionFunctions: true
+
+# Define o tamanho de memória das funções Lambda
+memorySize: 128
+
+# Define o tempo de execução das funções Lambda
+timeout: 30
+
+# Definição do nome da chave de segurança do serviço
+apiGateway:
+  apiKeys:
+    - ci-traininig-${self:provider.stage}
+
+environment: ${file(./env/env.${opt:stage}.yml)}

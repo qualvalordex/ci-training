@@ -1,0 +1,7 @@
+testService:
+  handler: src/handler.hello
+  events:
+    - http:
+        path: test
+        method: get
+        private: true
